@@ -1,0 +1,41 @@
+@mixin flex-container($flow) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: $flow;
+  flex-flow: $flow;
+}
+
+@mixin justify-content($val) {
+  -webkit-justify-content: $val;
+  justify-content: $val;
+}
+
+@mixin transform($val) {
+  -webkit-transform: perspective(1px) translateY($val);
+  -ms-transform: perspective(1px) translateY($val);
+  transform: perspective(1px) translateY($val);
+}
+
+@mixin animated-underline($color) {
+  &:before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: $color;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  &:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+}

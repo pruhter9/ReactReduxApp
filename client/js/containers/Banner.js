@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import store from '../store';
-import axios from 'axios';
-// import presentational components here
 
+import SiteLogo from '../components/SiteLogo';
 import UserCard from '../components/UserCard';
 
-@connect((store) => {
-	return {
-		user: store.user
-	}
-})
-export default class Banner extends React.Component {
-	render() {
-		let { user } = this.props;
-		return (
-			<div id="banner">
-				<div class="container">
-					<img src="../assets/logo.png" alt="logo" />
-					<UserCard user={user}/>
-				</div>
-			</div>
-		);
-	}
+class Banner extends Component {
+  render() {
+    const { user } = this.props;
+    return (
+      <div className="flex-center-container banner">
+        <div className="banner-content">
+          <SiteLogo />
+          <UserCard user={user} />
+        </div>
+      </div>
+    );
+  }
 }
+
+Banner.propTypes = {
+  user: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    activeSection: PropTypes.string,
+  }),
+};
+
+function mapStateToProps(store) {
+  return {
+    user: store.user,
+  };
+}
+
+export default connect(mapStateToProps)(Banner);

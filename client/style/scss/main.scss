@@ -1,214 +1,160 @@
-// Reset browser defaults
-// @import 'partials/normalize';
-// Font awesome
-// @import 'node_modules/font-awesome/scss/font-awesome';
-// import partials and modules
-// variables need to be imported first since they are used in subsequent files
-// @import 'partials/variables';
-// @import 'partials/inputs';
-// @import 'partials/base';
-// @import 'modules/login';
-
-// body {
-// 	background: $white;
-// 	color: $text-gray;
-// }
-
-* {
-	padding: 0;
-	margin: 0;
-	font-family: arial;
-}
-
-body {
-	background: #C1C1C1;
-	overflow: hidden;
-}
-
-a {
-	text-decoration: none;
-}
-
-.clearfix {
-	&:after {
-		content: "";
-		visibility: hidden;
-		display: block;
-		height: 0;
-		clear: both;
-	}
-}
-
-.scrollable {
-	position: absolute;
-	height: 100%;
-}
-
-.section-banner {
-	padding: 10px;
-	width: 100%;
-	height: 45px;
-	color: #6AABBA;
-	background: #FFFFFF;
-	box-sizing: border-box;
-	border-top: solid 1px #CAEBF2;
-
-	.news-banner-header {
-		float: left;
-		width: 50%;
-
-		h2 {
-			display: inline-block;
-		}
-
-		.source-header-name {
-			color: #A9A9A9;
-			margin-left: 10px;
-		}
-	}
-
-	.sources-search {
-		float: left;
-		width: 50%;
-
-		.search-container {
-			position: absolute;
-			right: 275px;
-
-			i {
-				position: relative;
-				left: 20px;
-			}
-
-			input:hover::-webkit-input-placeholder {
-					color: #36383B;
-					transition: color 0.5s;
-				}
-
-			input {
-				border-radius: 10px 0 0 10px;
-				padding: 5px 0 5px 25px;
-				border: 1px solid #EFEFEF;
-				font-size: 0.9em;
-				width: 140px;
-
-				&:focus {
-					border-radius: 10px 0 0 10px;
-					border: 1px solid #6AABBA;
-					outline: none;
-				}
-			}
-
-			.dropdown {
-				display: inline-block;
-				text-align: center;
-				width: 145px;
-				border: 1px solid #EFEFEF;
-				border-radius: 0 10px 10px 0;
-
-				&:hover {
-					background: #EFEFEF;
-					transition: background 0.5s ease-out;
-				}
-
-				a {
-					display: inline-block;
-					color: #A9A9A9;
-					font-size: 0.9em;
-					padding: 5px 10px;
-					width: 100%;
-					box-sizing: border-box;
-					border-radius: 0 10px 10px 0;
-
-					&:hover {
-						background: #EFEFEF;
-						color: #36383B;
-						transition: color 0.5s ease-out, background 0.5s ease-out;
-					}
-				}
-
-				ul {
-					z-index: 100;
-					position: absolute;
-					top: 28px;
-					right: 0px;
-					list-style: none;
-					border: 1px solid #6AABBA;
-					border-top: none;
-					width: 145px;
-					background: #8EBEE4;
-
-					li {
-						display: block;
-						border: 1px solid white;
-
-						a {
-							display: inline-block;
-							width: 100%;
-							padding: 5px 0;
-							border-radius: 0;
-							color: white;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-#banner {
-	height: 85px;
-	background: #FFFFFF;
-	padding: 10px;
-
-	.container {
-		width: 70%;
-		max-width: 1200px;
-		margin: 0 auto;
-		height: inherit;
-		position: relative;
-
-		img {
-			height: 100%;
-			float: left;
-			position: relative;
-			top: 2.5%;
-
-		}
-
-		#user-card {
-			float: right;
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
-			color: #707173;
-
-			div {
-				padding-right: 10px;
-				display: inline-block;
-			}
-
-			.user-logo {
-
-				i {
-					font-size: 2.25em;
-					color: #E43228;
-				}
-			}
-		}
-	}
-}
+@import 'variables';
+@import 'mixins';
+@import 'globals';
+@import 'partials/banner';
+@import 'partials/nav';
+@import 'partials/news';
 
 #main {
 	width: 70%;
 	max-width: 1200px;
+	min-width: 1000px;
+	background: $white;
+
+	@include flex-container(row wrap);
+}
+
+.section-banner {
+	border-bottom: 1px solid $gray;
+	border-top: 1px solid $gray;
+	padding: 0 15px;
+	height: 55px;
+	flex: 1;
+	box-sizing: border-box;
+
+	@include flex-container(row wrap);
+	@include justify-content(space-between);
+
+	.section-header {
+		  
+		h3 {
+			display: inline-block;
+		  position: relative;
+		  top: 50%;
+		  @include transform(-50%);
+		}
+
+		.active-news-source {
+			color: $gray;
+			margin-left: 10px;
+		}
+	}
+
+  .searchbar {
+    position: relative;
+
+    i {
+    	position: relative;
+    	top: 50%;
+    	@include transform(-90%);
+    	left: 25px;
+    	z-index: 1;
+    	color: $olive;
+    }
+
+  	input {
+  		position: relative;
+  		top: 50%;
+	    @include transform(-50%);
+		  border-radius: 10px 0 0 10px;
+			padding: 5px 0 5px 30px;
+			border: 1px solid $light-gray;
+			font-size: 0.9em;
+			width: 135px;
+
+			&:focus {
+				border: 1px solid $olive;
+			}
+
+			&:hover::-webkit-input-placeholder {
+				color: $black;
+				transition: color 0.5s;
+			}
+  	}
+
+  	button {
+  		position: relative;
+  		top: 50%;
+  		@include transform(-50%);
+  		border-radius: 0 10px 10px 0;
+  		padding: 5px 0;
+  		border: 1px solid $light-gray;
+  		font-size: 0.9em;
+  		width: 155px;
+  		background: $white;
+  		color: $gray;
+  		box-sizing: content-box;
+
+  		&:hover {
+  			background: $light-gray;
+  			color: $black;
+  			transition: color 0.5s, background 0.5s;
+  			cursor: pointer;
+  		}
+
+  		&.active {
+  			border-radius: 0px;
+  			border: 1px solid $olive;
+  			border-bottom: 1px solid $light-gray;
+  		}
+  	}
+
+  	ul {
+  		position: absolute;
+  		right: 0;
+  		top: 41px;
+  		list-style: none;
+  		z-index: 10;
+  		border: 1px solid $olive;
+  		border-top: none;
+  		border-radius: 0 0 10px 10px;
+  		overflow: hidden;
+
+  		&.hidden {
+  			display: none;
+  		}
+
+  		&.active {
+  			display: block;
+  		}
+
+  		li {
+  			position: relative;
+
+  			button {
+  				color: $black;
+  				border-radius: 0px;
+  				border: none;
+  				border-bottom: 1px solid $light-gray;
+  				transform: none;
+
+  				&:hover {
+  					color: $white;
+  					background: $purple;
+  				}
+  			}
+
+  			&:last-child {
+
+  				button {
+  					border-bottom: none;
+  				}
+  			}
+  		}
+  	}
+  }
+}
+
+/*
+#main {
+	width: 70%;
+	max-width: 1200px;
 	margin: 0 auto;
-	border-right: solid 1px #FFFFFF;
-	border-left: solid 1px #FFFFFF;
 
 	#sidebar {
-		width: 20%;
-		background: #8EBEE4;
+		padding-top: 55px;
+		width: 200px;
+		background: #3b2a67;
 		float: left;
 		height: 1300px;
 		overflow-y: hidden;
@@ -216,38 +162,69 @@ a {
 		ul {
 			list-style: none;
 
-			:hover {
-				background: #E43228;
-				transition: background 0.5s ease-out;
-				cursor: pointer;
+			#news-link {
+				:hover {
+					background: $olive;
+				}
+
+				&.active {
+					background: $olive;
+				}
+			}
+
+			#music-link {
+				:hover {
+					background: $blue;
+				}
+
+				&.active {
+					background: $blue;
+				}
+			}
+
+			#video-link {
+				:hover {
+					background: $fuschia;
+				}
+
+				&.active {
+					background: $fuschia;
+				}
+			}
+
+			#weather-link {
+				:hover {
+					background: $orange;
+				}
+
+				&.active {
+					background: $orange;
+				}
 			}
 
 			li {
 				display: block;
 
 				:hover {
-					background: red;
-					color: #FFFFFF;
+					transition: background 0.5s ease-out;
+					cursor: pointer;
 				}
 
 				a {
 					display: inline-block;
 					padding: 10px;
+					padding-left: 15px;
 					width: 100%;
 					box-sizing: border-box;
 					color: #FFFFFF;
 					font-size: 1.3em;
-
-					:hover {
-						color: #FFFFFF;
-					}
 				}
 			}
 		}
 	}
 
 	#news-container {
-		width: 80%;
+		width: 1000px;
 		float: left;
 
 		.news-stories-container {
@@ -255,7 +232,7 @@ a {
 			width: 66.66%;
 			overflow-y: auto;
 			position: relative;
-			background: #EFEFEF;
+			background: $white;
 			display: block;
 
 			.loading-articles {
@@ -271,7 +248,7 @@ a {
 					transform: translateY(-50%);
 
 					i {
-						color: #6AABBA;
+						color: $olive;
 					}
 				}
 			}
@@ -280,15 +257,8 @@ a {
 				height: auto;
 				position: relative;
 
-				i {
-					position: relative;
-					top: 50%;
-					// transform: translateY(-50%);
-				}
-
 				.article {
 					padding: 15px;
-					background: #EFEFEF;
 					border: 1px solid white;
 					border-top: none;
 					box-sizing: border-box;
@@ -307,7 +277,7 @@ a {
 
 						h4 {
 							display: inline-block;
-							color: red;
+							color: $red;
 							font-weight: normal;
 							padding-right: 4px;
 						}
@@ -315,7 +285,7 @@ a {
 						h5 {
 							display: inline-block;
 							margin-right: 5px;
-							color: #707173;
+							color: $gray;
 						}
 
 					}
@@ -335,7 +305,7 @@ a {
 						}
 
 						a {
-							color: #6AABBA;
+							color: $olive;
 						    font-weight: bold;
 						    text-overflow: ellipsis;
 						    overflow: hidden;
@@ -348,7 +318,7 @@ a {
 								height: 1px;
 								bottom: 0;
 								left: 0;
-								background-color: #6AABBA;
+								background-color: $olive;
 								visibility: hidden;
 								transform: scaleX(0);
 								transition: all 0.3s ease-in-out 0s;
@@ -369,7 +339,9 @@ a {
 			width: 33.33%;
 			position: relative;
 			overflow-y: auto;
-			background: #EFEFEF;		
+			background: $white;
+			border-left: 1px solid $gray;
+			box-sizing: border-box;
 
 			.news-sources {
 				height: auto;
@@ -380,14 +352,13 @@ a {
 					width: 100%;
 					float: left;
 					box-sizing: border-box;
-					border-bottom: 1px solid white;
 
 					&:last-child {
 						padding-bottom: 40px;
 					}
 
 					&:hover {
-						background: #FFFFFF;
+						background: rgba(61,153,112, 0.1);
 						cursor: pointer;
 					}
 
@@ -413,7 +384,7 @@ a {
 							padding-left: 10px;
 
 							a {
-								color: #6AABBA;
+								color: $olive;
 								font-weight: bold;
 								text-overflow: ellipsis;
 								overflow: hidden;
@@ -426,7 +397,7 @@ a {
 									height: 1px;
 									bottom: 0;
 									left: 0;
-									background-color: #6AABBA;
+									background-color: $olive;
 									visibility: hidden;
 									transform: scaleX(0);
 									transition: all 0.3s ease-in-out 0s;
@@ -454,3 +425,5 @@ a {
 		}
 	}
 }
+
+*/

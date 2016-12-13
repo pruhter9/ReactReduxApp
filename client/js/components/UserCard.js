@@ -1,19 +1,21 @@
-import React from 'react';
-// import presentational components here
+import React, { PropTypes } from 'react';
 
-export default class UserCard extends React.Component {
-	render() {
-		const { user } = this.props;
-		return (
-			<div id="user-card">
-				<div class="user-logo">
-					<i class="fa fa-user" aria-hidden="true"></i>
-				</div>
-				<div class="user-greeting">
-					<h5>Hello,</h5>
-					<h3>{user.firstName}</h3>
-				</div>
-			</div>
-		);
-	}
-}
+const UserCard = ({ user }) => (
+  <div className="user-card">
+    <div className="user-logo">
+      <i className="fa fa-user" aria-hidden="true" />
+    </div>
+    <div className="user-greeting">
+      <h5>Hello,</h5>
+      <h4>{user.firstName}</h4>
+    </div>
+  </div>
+);
+
+UserCard.propTypes = {
+  user: PropTypes.shape({
+    firstName: PropTypes.string,
+  }),
+};
+
+export default UserCard;

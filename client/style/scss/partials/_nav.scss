@@ -1,0 +1,62 @@
+.navbar {
+  background: $purple;
+  flex: 0 0 175px;
+  height: calc(100vh - 85px);
+  padding-top: 55px;
+
+  ul {
+    list-style: none;
+
+    li {
+
+      a {
+        color: $white;
+        padding: 15px;
+        box-sizing: border-box;
+        width: 100%;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .news-link {
+        &:hover {
+          background: $olive;
+        }
+
+        &.active {
+          background: $olive;
+        }
+      }
+
+      .music-link {
+        &:hover {
+          background: $blue;
+        }
+
+        &.active {
+          background: $blue;
+        }
+      }
+
+      .video-link {
+        &:hover {
+          background: $fuschia;
+        }
+
+        &.active {
+          background: $fuschia;
+        }
+      }
+
+      .weather-link {
+        &:hover {
+          background: $orange;
+        }
+
+        &.active {
+          background: $orange;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,10 @@
-var mongoose = require('mongoose');
-var fs = require('fs');
+/* eslint-disable */
+'use-strict';
 
-mongoose.connect('mongodb://localhost/db_name');
+const mongoose = require('mongoose');
+const fs = require('fs');
+
+mongoose.connect('mongodb://localhost/Espresso');
 var modelsPath = __dirname + '/../models';
 
 /* Loop over all files in the model folder and pull in all javascript files */

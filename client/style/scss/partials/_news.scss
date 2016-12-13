@@ -1,0 +1,272 @@
+.news-container {
+	flex: 1;
+
+	@include flex-container(row wrap);
+
+	.news-content-container {
+		@include flex-container(row wrap);
+		margin-top: -55px;
+
+		.article-column {
+			flex: 6;
+			height: calc(100vh - 140px);
+			overflow-y: scroll;
+
+			> div {
+	      &:last-child {
+	      	.article-break {
+	      		display: none;
+	      	}
+	      }
+			}
+
+			.article {
+				padding: 15px;
+
+				img {
+					width: 100%;
+				}
+
+				p {
+					margin: 15px 0 10px;
+					line-height: 1.25em;
+				}
+
+				a {
+					color: $olive;
+					font-weight: bold;
+					position: relative;
+
+					@include animated-underline($olive);
+				}
+
+				.article-title {
+					h2 {
+						line-height: 1.1em;
+					}
+
+					.article-author {
+						margin-bottom: 15px;
+
+						h4 {
+							display: inline-block;
+							color: $red;
+							margin: 0px 5px;
+						}
+
+						h5 {
+							color: $gray;
+							display: inline-block;
+						}
+					}
+				}
+			}
+
+			.article-break {
+				width: 100%;
+				border-bottom: 1px solid $gray;
+				text-align: center;
+				margin-bottom: 10px;
+
+				i {
+					font-size: 1.3em;
+					color: $gray;
+					padding: 0 10px;
+					position: relative;
+					top: 12px;
+					background: $white;
+				}
+			}
+		}
+
+		.sources-column {
+			flex: 3;
+			height: calc(100vh - 140px);
+			overflow-y: scroll;
+			background: $white;
+			border-left: 1px solid $gray;
+
+			.news-source {
+				padding: 15px 0px;
+				background: $white;
+				
+				&:hover {
+					background: rgba(61,153,112, 0.1);
+					cursor: pointer;
+				}
+
+				.source-header {
+					@include flex-container(row wrap);
+					text-align: left;
+					border-bottom: 1px dashed $black;
+					padding-bottom: 15px;
+
+					.source-logo {
+						flex: 3;
+						padding: 0px 15px;
+
+						@include flex-container(row)
+						align-items: center;
+
+						img {
+							width: 100%;
+						}
+					}
+
+					.source-info {
+						flex: 6;
+						padding-right: 15px;
+						overflow-x: hidden;
+
+						h5 {
+							color: $dark-gray;
+						}
+
+						a {
+							position: relative;
+							color: $olive;
+							font-weight: bold;
+							text-overflow: ellipsis;
+
+							@include animated-underline($olive);
+						}
+					}
+				}
+
+				p {
+					text-align: left;
+					padding: 15px;
+				}
+			}
+		}
+	}
+}
+
+/*
+.section-banner {
+	padding: 0px 15px;
+	width: 100%;
+	background: #FFFFFF;
+	box-sizing: border-box;
+	border-top: solid 1px $gray;
+	border-bottom: solid 1px $gray;
+
+	.news-banner-header {
+		float: left;
+		width: 50%;
+		height: 55px;
+
+		h3 {
+			display: inline-block;
+			color: $olive;
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.source-header-name {
+			color: #A9A9A9;
+			margin-left: 10px;
+		}
+	}
+
+	.sources-search {
+		float: left;
+		width: 50%;
+		height: 55px;
+		z-index: 100;
+		position: relative;
+
+		.search-container {
+			position: relative;
+			float: right;
+			top: 50%;
+			transform: translateY(-50%);
+
+			i {
+				color: $olive;
+				position: relative;
+				left: 20px;
+			}
+
+			input:hover::-webkit-input-placeholder {
+					color: #36383B;
+					transition: color 0.5s;
+				}
+
+			input {
+				border-radius: 10px 0 0 10px;
+				padding: 5px 0 5px 25px;
+				border: 1px solid #EFEFEF;
+				font-size: 0.9em;
+				width: 140px;
+
+				&:focus {
+					border-radius: 10px 0 0 10px;
+					border: 1px solid $olive;
+					outline: none;
+				}
+			}
+
+			.dropdown {
+				display: inline-block;
+				text-align: center;
+				width: 145px;
+				border: 1px solid #EFEFEF;
+				border-radius: 0 10px 10px 0;
+
+				&:hover {
+					background: #EFEFEF;
+					transition: background 0.5s ease-out;
+				}
+
+				a {
+					display: inline-block;
+					color: #A9A9A9;
+					font-size: 0.9em;
+					padding: 5px 10px;
+					width: 100%;
+					box-sizing: border-box;
+					border-radius: 0 10px 10px 0;
+
+					&:hover {
+						background: #EFEFEF;
+						color: #36383B;
+						transition: color 0.5s ease-out, background 0.5s ease-out;
+					}
+				}
+
+				ul {
+					z-index: 100;
+					position: absolute;
+					top: 28px;
+					right: 0px;
+					list-style: none;
+					border: 1px solid $olive;
+					border-top: none;
+					width: 145px;
+					background: $olive;
+
+					li {
+						display: block;
+						border: 1px solid $white;
+						border-bottom: none;
+
+						&:last-child {
+							border-bottom: 1px solid $white;
+						}
+
+						a {
+							display: inline-block;
+							width: 100%;
+							padding: 5px 0;
+							border-radius: 0;
+							color: white;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+*/

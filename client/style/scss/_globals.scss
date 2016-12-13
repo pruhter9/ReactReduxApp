@@ -1,0 +1,35 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: $gray;
+	overflow: hidden;
+	font-size: 100%;
+	font-family: $font-sans;
+	color: $black;
+}
+
+a {
+	text-decoration: none;
+}
+
+.flex-center-container {
+	@include flex-container(row wrap);
+	@include justify-content(center);
+}
+
+input,
+button {
+	border: none;
+	font-size: 100%;
+	outline: none;
+}
+
+h1 {font-size: 3em;}
+h2 {font-size: 2.5em;}
+h3 {font-size: 2em;}
+h4 {font-size: 1.5em;}
+h5 {font-size: 1em;}
+h6 {font-size: 0.75em;}
