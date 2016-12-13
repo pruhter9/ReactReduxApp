@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import { timeConverter } from '../helpers/timeFormat';
+import { timeConverter } from '../../helpers/timeFormat';
 
 const ArticleTitle = ({ author, title, publishedAt }) => (
   <div className="article-title">

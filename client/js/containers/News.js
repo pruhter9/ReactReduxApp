@@ -10,10 +10,10 @@ import {
   toggleFilterMenu,
 } from '../actions/newsActions';
 
-import Article from '../components/Article';
-import ArticleBreak from '../components/ArticleBreak';
-import SectionBanner from '../components/SectionBanner';
-import Source from '../components/Sources';
+import Article from '../components/news/Article';
+import ArticleBreak from '../components/news/ArticleBreak';
+import SectionBanner from '../components/news/SectionBanner';
+import Source from '../components/news/Sources';
 
 class News extends Component {
   componentWillMount() {

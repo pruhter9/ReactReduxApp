@@ -1,0 +1,134 @@
+.section-banner {
+
+  @media (min-width: $large) {
+    border-top: 1px solid $gray;
+  }
+  
+  border-bottom: 1px solid $gray;
+  padding: 0 15px;
+  height: 55px;
+  flex: 1;
+  box-sizing: border-box;
+
+  @include flex-container(row wrap);
+  @include justify-content(space-between);
+
+  .section-header {
+      
+    h3 {
+      display: inline-block;
+      position: relative;
+      top: 50%;
+      @include transform(-50%);
+    }
+
+    .active-news-source {
+      color: $gray;
+      margin-left: 10px;
+    }
+  }
+
+  .searchbar {
+    position: relative;
+
+    i {
+      position: relative;
+      top: 50%;
+      @include transform(-90%);
+      left: 25px;
+      z-index: 1;
+      color: $olive;
+    }
+
+    input {
+      position: relative;
+      top: 50%;
+      @include transform(-50%);
+      border-radius: 10px 0 0 10px;
+      padding: 5px 0 5px 30px;
+      border: 1px solid $light-gray;
+      font-size: 0.9em;
+      width: 135px;
+
+      &:focus {
+        border: 1px solid $olive;
+      }
+
+      &:hover::-webkit-input-placeholder {
+        color: $black;
+        transition: color 0.5s;
+      }
+    }
+
+    button {
+      position: relative;
+      top: 50%;
+      @include transform(-50%);
+      border-radius: 0 10px 10px 0;
+      padding: 5px 0;
+      border: 1px solid $light-gray;
+      font-size: 0.9em;
+      width: 155px;
+      background: $white;
+      color: $gray;
+      box-sizing: content-box;
+
+      &:hover {
+        background: $light-gray;
+        color: $black;
+        transition: color 0.5s, background 0.5s;
+        cursor: pointer;
+      }
+
+      &.active {
+        border-radius: 0px;
+        border: 1px solid $olive;
+        border-bottom: 1px solid $light-gray;
+      }
+    }
+
+    ul {
+      position: absolute;
+      right: 0;
+      top: 41px;
+      list-style: none;
+      z-index: 10;
+      border: 1px solid $olive;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.active {
+        display: block;
+      }
+
+      li {
+        position: relative;
+
+        button {
+          color: $black;
+          border-radius: 0px;
+          border: none;
+          border-bottom: 1px solid $light-gray;
+          transform: none;
+
+          &:hover {
+            color: $white;
+            background: $purple;
+          }
+        }
+
+        &:last-child {
+
+          button {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

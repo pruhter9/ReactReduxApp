@@ -1,13 +1,26 @@
 .navbar {
   background: $purple;
-  flex: 0 0 175px;
-  height: calc(100vh - 85px);
-  padding-top: 55px;
+
+  @media (min-width: $medium) and (max-width: $large) {
+    height: 55px;
+    min-width: 855px;
+    flex: 0;
+  }
+
+  @media (min-width: $large) {
+    padding-top: 55px;
+    height: calc(100vh - 85px);
+    flex: 0 0 175px;
+  }
 
   ul {
     list-style: none;
 
     li {
+      @media (min-width: $medium) and (max-width: $large) {
+        display: inline-block;
+        width: 175px;
+      }
 
       a {
         color: $white;

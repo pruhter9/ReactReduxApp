@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import { extractDomain } from '../helpers/extractDomain';
+import { extractDomain } from '../../helpers/extractDomain';
 
 const SourceHeader = ({ category, logo, name, url }) => (
   <div className="source-header">

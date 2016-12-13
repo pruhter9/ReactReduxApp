@@ -5,12 +5,26 @@
 
 	.news-content-container {
 		@include flex-container(row wrap);
-		margin-top: -55px;
+
+    @media (min-width: $medium) {
+    	margin-top: -4px;
+    }
+
+		@media (min-width: $large) {
+			margin-top: -55px;
+		}
 
 		.article-column {
 			flex: 6;
-			height: calc(100vh - 140px);
 			overflow-y: scroll;
+
+      @media (min-width: $medium) {
+      	height: calc(100vh - 191px);
+      }
+
+      @media (min-width: $large) {
+				height: calc(100vh - 140px);
+			}
 
 			> div {
 	      &:last-child {
@@ -81,10 +95,17 @@
 
 		.sources-column {
 			flex: 3;
-			height: calc(100vh - 140px);
 			overflow-y: scroll;
 			background: $white;
 			border-left: 1px solid $gray;
+
+			@media (min-width: $medium) {
+      	height: calc(100vh - 191px);
+      }
+
+      @media (min-width: $large) {
+				height: calc(100vh - 140px);
+			}
 
 			.news-source {
 				padding: 15px 0px;
@@ -141,132 +162,3 @@
 		}
 	}
 }
-
-/*
-.section-banner {
-	padding: 0px 15px;
-	width: 100%;
-	background: #FFFFFF;
-	box-sizing: border-box;
-	border-top: solid 1px $gray;
-	border-bottom: solid 1px $gray;
-
-	.news-banner-header {
-		float: left;
-		width: 50%;
-		height: 55px;
-
-		h3 {
-			display: inline-block;
-			color: $olive;
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
-		}
-
-		.source-header-name {
-			color: #A9A9A9;
-			margin-left: 10px;
-		}
-	}
-
-	.sources-search {
-		float: left;
-		width: 50%;
-		height: 55px;
-		z-index: 100;
-		position: relative;
-
-		.search-container {
-			position: relative;
-			float: right;
-			top: 50%;
-			transform: translateY(-50%);
-
-			i {
-				color: $olive;
-				position: relative;
-				left: 20px;
-			}
-
-			input:hover::-webkit-input-placeholder {
-					color: #36383B;
-					transition: color 0.5s;
-				}
-
-			input {
-				border-radius: 10px 0 0 10px;
-				padding: 5px 0 5px 25px;
-				border: 1px solid #EFEFEF;
-				font-size: 0.9em;
-				width: 140px;
-
-				&:focus {
-					border-radius: 10px 0 0 10px;
-					border: 1px solid $olive;
-					outline: none;
-				}
-			}
-
-			.dropdown {
-				display: inline-block;
-				text-align: center;
-				width: 145px;
-				border: 1px solid #EFEFEF;
-				border-radius: 0 10px 10px 0;
-
-				&:hover {
-					background: #EFEFEF;
-					transition: background 0.5s ease-out;
-				}
-
-				a {
-					display: inline-block;
-					color: #A9A9A9;
-					font-size: 0.9em;
-					padding: 5px 10px;
-					width: 100%;
-					box-sizing: border-box;
-					border-radius: 0 10px 10px 0;
-
-					&:hover {
-						background: #EFEFEF;
-						color: #36383B;
-						transition: color 0.5s ease-out, background 0.5s ease-out;
-					}
-				}
-
-				ul {
-					z-index: 100;
-					position: absolute;
-					top: 28px;
-					right: 0px;
-					list-style: none;
-					border: 1px solid $olive;
-					border-top: none;
-					width: 145px;
-					background: $olive;
-
-					li {
-						display: block;
-						border: 1px solid $white;
-						border-bottom: none;
-
-						&:last-child {
-							border-bottom: 1px solid $white;
-						}
-
-						a {
-							display: inline-block;
-							width: 100%;
-							padding: 5px 0;
-							border-radius: 0;
-							color: white;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-*/

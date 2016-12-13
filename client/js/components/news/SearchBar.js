@@ -20,7 +20,7 @@ const SearchBar = ({
       className={dropdownEngaged ? 'active' : ''}
       onClick={() => toggleFilterMenu()}
     >
-      {!selectedCategory ? 'category' : selectedCategory}
+      {!selectedCategory ? 'category' : selectedCategory.replace(/-/g, ' ')}
     </button>
     <FilterList
       categories={categories}
